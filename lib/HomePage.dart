@@ -55,39 +55,47 @@ class _HomePageState extends State<HomePage> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   Expanded(
-                    child: ClayContainer(
-                      height: 100,
-                      //width: width*0.4,
-                      //color: Color(0xFFF2F2F2),
-                      depth: 19,
-                      spread: 8,
-                      borderRadius: 15,
-                      child: Column(
-                        children: <Widget>[
-                          SizedBox(height: 15,),
-                          Image.asset('images/syringe.png',height: 60,width: 60,),
-                          Text('Pharmaceutical'),
-                        ],
+                    child: GestureDetector(
+                      onTap: (){},
+                      child: ClayContainer(
+                        height: 100,
+                        //width: width*0.4,
+                        //color: Color(0xFFF2F2F2),
+                        depth: 19,
+                        spread: 8,
+                        borderRadius: 15,
+                        child: Column(
+                          children: <Widget>[
+                            SizedBox(height: 15,),
+                            Image.asset('images/syringe.png',height: 60,width: 60,),
+                            Text('Pharmaceutical'),
+                          ],
+                        ),
+                        //curveType: CurveType.convex,
                       ),
-                      //curveType: CurveType.convex,
                     ),
                   ),
                   SizedBox(width: 17,),
                   Expanded(
-                    child: ClayContainer(
-                      height: 100,
-                      //width: width*0.4,
-                      depth: 19,
-                      spread: 8,
-                      borderRadius: 15,
-                      child: Column(
-                        children: <Widget>[
-                          SizedBox(height: 15,),
-                          Image.asset('images/medical-assistance.png',height: 60,width: 60,),
-                          Text('Mental Assistance'),
-                        ],
+                    child: GestureDetector(
+                      onTap: (){},
+
+
+                      child: ClayContainer(
+                        height: 100,
+                        //width: width*0.4,
+                        depth: 19,
+                        spread: 8,
+                        borderRadius: 15,
+                        child: Column(
+                          children: <Widget>[
+                            SizedBox(height: 15,),
+                            Image.asset('images/medical-assistance.png',height: 60,width: 60,),
+                            Text('Mental Assistance'),
+                          ],
+                        ),
+                        //curveType: CurveType.convex,
                       ),
-                      //curveType: CurveType.convex,
                     ),
                   ),
                 ],
@@ -100,39 +108,47 @@ class _HomePageState extends State<HomePage> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   Expanded(
-                    child: ClayContainer(
-                      height: 100,
-                      //width: width*0.4,
-                      //color: Color(0xFFF2F2F2),
-                      depth: 19,
-                      spread: 8,
-                      borderRadius: 15,
-                      child: Column(
-                        children: <Widget>[
-                          SizedBox(height: 15,),
-                          Image.asset('images/medical-box.png',height: 60,width: 60,),
-                          Text('Emergency practices'),
-                        ],
+                    child: GestureDetector(
+                      onTap: (){
+                        print('pressed');
+                      },
+                      child: ClayContainer(
+                        height: 100,
+                        //width: width*0.4,
+                        //color: Color(0xFFF2F2F2),
+                        depth: 19,
+                        spread: 8,
+                        borderRadius: 15,
+                        child: Column(
+                          children: <Widget>[
+                            SizedBox(height: 15,),
+                            Image.asset('images/medical-box.png',height: 60,width: 60,),
+                            Text('Emergency practices'),
+                          ],
+                        ),
+                        //curveType: CurveType.convex,
                       ),
-                      //curveType: CurveType.convex,
                     ),
                   ),
                  SizedBox(width: 17,),
                   Expanded(
-                    child: ClayContainer(
-                      height: 100,
-                      //width: width*0.4,
-                      depth: 19,
-                      spread: 8,
-                      borderRadius: 15,
-                      child: Column(
-                        children: <Widget>[
-                          SizedBox(height: 15,),
-                          Image.asset('images/personal-information.png',height: 60,width: 60,),
-                          Text('Medical ID'),
-                        ],
+                    child: GestureDetector(
+                      onTap: (){},
+                      child: ClayContainer(
+                        height: 100,
+                        //width: width*0.4,
+                        depth: 19,
+                        spread: 8,
+                        borderRadius: 15,
+                        child: Column(
+                          children: <Widget>[
+                            SizedBox(height: 15,),
+                            Image.asset('images/personal-information.png',height: 60,width: 60,),
+                            Text('Medical ID'),
+                          ],
+                        ),
+                        //curveType: CurveType.convex,
                       ),
-                      //curveType: CurveType.convex,
                     ),
                   ),
                 ],
