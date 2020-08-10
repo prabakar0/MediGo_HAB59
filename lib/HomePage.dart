@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medigo_hab59/medical_ID.dart';
 import 'constants.dart';
 import 'package:clay_containers/clay_containers.dart';
 
@@ -38,7 +39,19 @@ class _HomePageState extends State<HomePage> {
                   children: <Widget>[
                     SizedBox(height: 85,),
                     Text('Welcome Back,',style: TextStyle(fontSize: 18,color: Colors.white),),
-                    Text('Samsritha',style: TextStyle(fontSize: 40,color: Colors.white,fontWeight: FontWeight.bold),),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text('Samsritha',style: TextStyle(fontSize: 40,color: Colors.white,fontWeight: FontWeight.bold),),
+                        Padding(
+                          padding: const EdgeInsets.only(right: 15),
+                          child: CircleAvatar(
+                            radius: 30.0,
+                            backgroundImage: AssetImage('images/model1.jpg'),
+                          ),
+                        ),
+                      ],
+                    ),
                     //SizedBox(height: 10,),
                   ],
                 ),
@@ -133,7 +146,9 @@ class _HomePageState extends State<HomePage> {
                  SizedBox(width: 17,),
                   Expanded(
                     child: GestureDetector(
-                      onTap: (){},
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> MedicalID()));
+                      },
                       child: ClayContainer(
                         height: 100,
                         //width: width*0.4,
