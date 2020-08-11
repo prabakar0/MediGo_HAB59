@@ -1,20 +1,10 @@
+import 'package:clay_containers/clay_containers.dart';
 import 'package:flutter/material.dart';
 //import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 import 'package:http/http.dart' as http;
-
-
-
-
-
-
-
-
-
-
-
-
+import 'package:medigo_hab59/constants.dart';
 
 class DrugSearch extends StatefulWidget {
   @override
@@ -81,28 +71,40 @@ setState(() {
   }
 
 
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
-      appBar: AppBar(),
+      backgroundColor: Color(0xFFF2F2F2),
+      appBar: AppBar(
+        title: Text('Pharmaceuticals'),
+        //centerTitle: true,
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: <Color>[
+                    Color(0xFF5B90F0),colour1,
+                  ])
+          ),
+        ),
+      ),
          body: SingleChildScrollView(
            child: Column(
              mainAxisAlignment: MainAxisAlignment.spaceAround,
              children: <Widget>[
                SizedBox(height: 10,),
-               TextField(
-
-                 decoration: InputDecoration(
-
-                   filled: true,
-                   fillColor: Colors.white,
-                   hintText: 'Search Medicines',
-                   border: OutlineInputBorder(borderRadius: BorderRadius.circular(10.0),)
+               Padding(
+                 padding: const EdgeInsets.only(left:12.0,right: 12.0,top: 12,bottom: 12),
+                 child: TextField(
+                   decoration: InputDecoration(
+                     filled: true,
+                     fillColor: Color(0xFFF2F2F2),
+                     hintText: 'Search Medicines',
+                     border: OutlineInputBorder(borderRadius: BorderRadius.circular(10.0),)
+                   ),
+                   onChanged: (value){medicineQuery = value;},
                  ),
-                 onChanged: (value){medicineQuery = value;},
                ),
                
                RaisedButton(onPressed: (){
@@ -110,118 +112,115 @@ setState(() {
                  print(medicineQuery);
                },
                  child: Text('Search'),
-                 
                ),
 
-               Container(
-                 decoration: BoxDecoration(
-                   borderRadius: BorderRadius.circular(10.0),
-                   color: Colors.white,
+               Padding(
+                 padding: const EdgeInsets.only(left:25.0,right: 25.0,top: 12),
+                 child: ClayContainer(
+                   width: double.infinity,
+                   height: 90,
+                   depth: 19,
+                   spread: 8,
+                   borderRadius: 15,
+                   child: Column(
+                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                     children: <Widget>[
+                       Text(name1),
+                       Text('₹$price1',style: TextStyle(color: Color(0xFF9055FF))),
+                       Text(manufacturer1),
+
+                     ],
+                   ),
                  ),
-                 width: double.infinity,
-                 height: 100.0,
-                 margin: EdgeInsets.all(10.0),
-                 child: Column(
-                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                   children: <Widget>[
-                     Text(name1),
-                     Text('₹$price1'),
-                     Text(manufacturer1),
-
-                   ],
-                 ),
-
-
-
-
                ),
-               Container(
-                 decoration: BoxDecoration(
-                   borderRadius: BorderRadius.circular(10.0),
-                   color: Colors.white,
+               Padding(
+                 padding: const EdgeInsets.only(left:25.0,right: 25.0,top: 20),
+                 child: ClayContainer(
+                   width: double.infinity,
+                   height: 90,
+                   depth: 19,
+                   spread: 8,
+                   borderRadius: 15,
+                   child: Column(
+                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                     children: <Widget>[
+                       Text(name2),
+                       Text('₹$price2',style: TextStyle(color: Color(0xFF9055FF))),
+                       Text(manufacturer2),
+
+                     ],
+                   ),
+
+
+
+
                  ),
-                 width: double.infinity,
-                 height: 100.0,
-                 margin: EdgeInsets.all(10.0),
-                 child: Column(
-                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                   children: <Widget>[
-                     Text(name2),
-                     Text('₹$price2'),
-                     Text(manufacturer2),
-
-                   ],
-                 ),
-
-
-
-
                ),
-               Container(
-                 decoration: BoxDecoration(
-                   borderRadius: BorderRadius.circular(10.0),
-                   color: Colors.white,
+               Padding(
+                 padding: const EdgeInsets.only(left:25.0,right: 25.0,top: 20),
+                 child: ClayContainer(
+                   width: double.infinity,
+                   height: 90,
+                   depth: 19,
+                   spread: 8,
+                   borderRadius: 15,
+                   child: Column(
+                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                     children: <Widget>[
+                       Text(name3),
+                       Text('₹$price3',style: TextStyle(color:Color(0xFF9055FF))),
+                       Text(manufacturer3),
+
+                     ],
+                   ),
+
                  ),
-                 width: double.infinity,
-                 height: 100.0,
-                 margin: EdgeInsets.all(10.0),
-                 child: Column(
-                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                   children: <Widget>[
-                     Text(name3),
-                     Text('₹$price3'),
-                     Text(manufacturer3),
-
-                   ],
-                 ),
-
-
-
-
                ),
-               Container(
-                 decoration: BoxDecoration(
-                   borderRadius: BorderRadius.circular(10.0),
-                   color: Colors.white,
+               Padding(
+                 padding: const EdgeInsets.only(left:25.0,right: 25.0,top: 20),
+                 child: ClayContainer(
+                   width: double.infinity,
+                   height: 90,
+                   depth: 19,
+                   spread: 8,
+                   borderRadius: 15,
+                   child: Column(
+                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                     children: <Widget>[
+                       Text(name4),
+                       Text('₹$price4',style: TextStyle(color: Color(0xFF9055FF))),
+                       Text(manufacturer4),
+
+                     ],
+                   ),
+
+
+
+
                  ),
-                 width: double.infinity,
-                 height: 100.0,
-                 margin: EdgeInsets.all(10.0),
-                 child: Column(
-                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                   children: <Widget>[
-                     Text(name4),
-                     Text('₹$price4'),
-                     Text(manufacturer4),
-
-                   ],
-                 ),
-
-
-
-
                ),
-               Container(
-                 decoration: BoxDecoration(
-                   borderRadius: BorderRadius.circular(10.0),
-                   color: Colors.white,
+               Padding(
+                 padding: const EdgeInsets.only(left:25.0,right: 25.0,top: 20,bottom: 20),
+                 child: ClayContainer(
+                   width: double.infinity,
+                   height: 90,
+                   depth: 19,
+                   spread: 8,
+                   borderRadius: 15,
+                   child: Column(
+                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                     children: <Widget>[
+                       Text(name5),
+                       Text('₹$price5',style: TextStyle(color: Color(0xFF9055FF))),
+                       Text(manufacturer5),
+
+                     ],
+                   ),
+
+
+
+
                  ),
-                 width: double.infinity,
-                 height: 100.0,
-                 margin: EdgeInsets.all(10.0),
-                 child: Column(
-                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                   children: <Widget>[
-                     Text(name5),
-                     Text('₹$price5'),
-                     Text(manufacturer5),
-
-                   ],
-                 ),
-
-
-
-
                ),
 
                

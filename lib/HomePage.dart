@@ -26,7 +26,7 @@ class _HomePageState extends State<HomePage> {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.only(bottomLeft: Radius.circular(25),),
                 gradient: LinearGradient(
-                  colors: [colour1,colour2],
+                  colors: [colour1,Color(0xFF5B90F0)],
                   begin: Alignment.topRight,
                   end: Alignment.bottomLeft,
                   //stops: [0.0,0.9],
@@ -184,7 +184,7 @@ class _HomePageState extends State<HomePage> {
             Padding(
               padding: const EdgeInsets.all(15.0),
               child: ClayContainer(
-                height: 150,
+                height: 300,
                 depth: 19,
                 spread: 8,
                 borderRadius: 15,
