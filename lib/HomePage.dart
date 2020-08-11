@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:medigo_hab59/medical_ID.dart';
 import 'constants.dart';
 import 'package:clay_containers/clay_containers.dart';
+import 'drug_search.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -69,7 +70,13 @@ class _HomePageState extends State<HomePage> {
                 children: <Widget>[
                   Expanded(
                     child: GestureDetector(
-                      onTap: (){},
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context){
+                          return DrugSearch();
+                        },
+                        ),
+                        );
+                      },
                       child: ClayContainer(
                         height: 100,
                         //width: width*0.4,
