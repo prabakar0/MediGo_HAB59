@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:medigo_hab59/medical_ID.dart';
 import 'constants.dart';
@@ -27,8 +28,8 @@ class _HomePageState extends State<HomePage> {
                 borderRadius: BorderRadius.only(bottomLeft: Radius.circular(25),),
                 gradient: LinearGradient(
                   colors: [colour1,Color(0xFF5B90F0)],
-                  begin: Alignment.topRight,
-                  end: Alignment.bottomLeft,
+                  begin: Alignment.centerLeft,
+                  end: Alignment.centerRight,
                   //stops: [0.0,0.9],
                   tileMode: TileMode.clamp,
                 ),
@@ -38,17 +39,26 @@ class _HomePageState extends State<HomePage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: <Widget>[
-                    SizedBox(height: 85,),
-                    Text('Welcome Back,',style: TextStyle(fontSize: 18,color: Colors.white),),
+                    SizedBox(height: 100,),
+                    Text('Welcome Back,',style: TextStyle(fontSize: 18,color: Colors.white.withOpacity(0.7)),),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
-                        Text('Samsritha',style: TextStyle(fontSize: 40,color: Colors.white,fontWeight: FontWeight.bold),),
+                        Text('Samsritha',style: TextStyle(fontSize: 40,color: Colors.white.withOpacity(0.9),fontWeight: FontWeight.bold),),
                         Padding(
                           padding: const EdgeInsets.only(right: 15),
-                          child: CircleAvatar(
-                            radius: 30.0,
-                            backgroundImage: AssetImage('images/model1.jpg'),
+                          child: Container(
+                            height: 50,
+                            width: 50,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                                border: Border.all(color: Colors.white.withOpacity(0.2),width: 2)
+                            ),
+                            padding: EdgeInsets.all(3),
+                            child: CircleAvatar(
+                              radius: 20.0,
+                              backgroundImage: AssetImage('images/model1.jpg'),
+                            ),
                           ),
                         ),
                       ],
@@ -86,9 +96,9 @@ class _HomePageState extends State<HomePage> {
                         borderRadius: 15,
                         child: Column(
                           children: <Widget>[
-                            SizedBox(height: 15,),
-                            Image.asset('images/syringe.png',height: 60,width: 60,),
-                            Text('Pharmaceutical'),
+                            SizedBox(height: 20,),
+                            Image.asset('images/syringe.png',height: 50,width: 50,),
+                            Text('Pharmaceutical',style: TextStyle(fontSize: 14.5),),
                           ],
                         ),
                         //curveType: CurveType.convex,
@@ -109,9 +119,9 @@ class _HomePageState extends State<HomePage> {
                         borderRadius: 15,
                         child: Column(
                           children: <Widget>[
-                            SizedBox(height: 15,),
-                            Image.asset('images/medical-assistance.png',height: 60,width: 60,),
-                            Text('Mental Assistance'),
+                            SizedBox(height: 20,),
+                            Image.asset('images/medical-assistance.png',height: 50,width: 50,),
+                            Text('Mental Assistance',style: TextStyle(fontSize: 14.5),),
                           ],
                         ),
                         //curveType: CurveType.convex,
@@ -141,9 +151,9 @@ class _HomePageState extends State<HomePage> {
                         borderRadius: 15,
                         child: Column(
                           children: <Widget>[
-                            SizedBox(height: 15,),
-                            Image.asset('images/medical-box.png',height: 60,width: 60,),
-                            Text('Emergency practices'),
+                            SizedBox(height: 20,),
+                            Image.asset('images/medical-box.png',height: 50,width: 50,),
+                            Text('Emergency practices',style: TextStyle(fontSize: 14.5),),
                           ],
                         ),
                         //curveType: CurveType.convex,
@@ -164,9 +174,9 @@ class _HomePageState extends State<HomePage> {
                         borderRadius: 15,
                         child: Column(
                           children: <Widget>[
-                            SizedBox(height: 15,),
-                            Image.asset('images/personal-information.png',height: 60,width: 60,),
-                            Text('Medical ID'),
+                            SizedBox(height: 20,),
+                            Image.asset('images/personal-information.png',height: 50,width: 50,),
+                            Text('Medical ID',style: TextStyle(fontSize: 14.5),),
                           ],
                         ),
                         //curveType: CurveType.convex,
@@ -178,29 +188,88 @@ class _HomePageState extends State<HomePage> {
             ),
             SizedBox(height: 15,),
             Padding(
-              padding: const EdgeInsets.only(left:20.0),
+              padding: const EdgeInsets.only(left:20.0,bottom: 10),
               child: Text('Health Articles',style: TextStyle(fontSize: 19,fontWeight: FontWeight.bold),),
             ),
-            Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: ClayContainer(
-                height: 300,
-                depth: 19,
-                spread: 8,
-                borderRadius: 15,
-                //curveType: CurveType.convex,
+            Container(
+              height: 150,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: <Widget>[
+                  SizedBox(width: 12,),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ClayContainer(
+                  height: 150,
+                  width: 300,
+                  depth: 20,
+                  spread: 8,
+                  borderRadius: 15,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: <Widget>[
+                      SizedBox(height: 78,),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          height: 40,
+                          width: 40,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            gradient: LinearGradient(
+                              colors: [colour1,Color(0xFF5B90F0)],
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter,
+                              tileMode: TileMode.clamp,
+                            ),
+                          ),
+                          child: Icon(Icons.arrow_forward,color: Colors.white.withOpacity(0.7),size: 20,),
+                        ),
+                      ),
+                    ],
+                  ),
+                  //curveType: CurveType.convex,
+                ),
+              ),
+                  Padding(
+                    padding: const EdgeInsets.only(top:8.0,bottom: 8,left: 10),
+                    child: ClayContainer(
+                      height: 150,
+                      width: 310,
+                      depth: 20,
+                      spread: 8,
+                      borderRadius: 15,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: <Widget>[
+                          SizedBox(height: 78,),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Container(
+                              height: 40,
+                              width: 40,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                gradient: LinearGradient(
+                                  colors: [colour1,Color(0xFF5B90F0)],
+                                  begin: Alignment.topCenter,
+                                  end: Alignment.bottomCenter,
+                                  tileMode: TileMode.clamp,
+                                ),
+                              ),
+                              child: Icon(Icons.arrow_forward,color: Colors.white.withOpacity(0.7),size: 20,),
+                            ),
+                          ),
+                        ],
+                      ),
+                      //curveType: CurveType.convex,
+                    ),
+                  ),
+                  SizedBox(width: 20,),
+                ],
               ),
             ),
-//            Padding(
-//              padding: const EdgeInsets.all(15.0),
-//              child: ClayContainer(
-//                height: 150,
-//                depth: 12,
-//                spread: 8,
-//                borderRadius: 15,
-//                //curveType: CurveType.convex,
-//              ),
-//            ),
+            SizedBox(height: 20,),
           ],
         ),
       ),

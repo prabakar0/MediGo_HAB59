@@ -70,29 +70,76 @@ setState(() {
 
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFFF2F2F2),
-      appBar: AppBar(
-        title: Text('Pharmaceuticals'),
-        //centerTitle: true,
-        flexibleSpace: Container(
-          decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: <Color>[
-                    Color(0xFF5B90F0),colour1,
-                  ])
-          ),
-        ),
-      ),
+//      appBar: AppBar(
+//        title: Text('Pharmaceuticals'),
+//        //centerTitle: true,
+//        flexibleSpace: Container(
+//          decoration: BoxDecoration(
+//              gradient: LinearGradient(
+//                  begin: Alignment.topLeft,
+//                  end: Alignment.bottomRight,
+//                  colors: <Color>[
+//                    Color(0xFF5B90F0),colour1,
+//                  ])
+//          ),
+//        ),
+//      ),
          body: SingleChildScrollView(
            child: Column(
              mainAxisAlignment: MainAxisAlignment.spaceAround,
              children: <Widget>[
+               Container(
+                 decoration: BoxDecoration(
+                   borderRadius: BorderRadius.only(bottomLeft: Radius.circular(25),),
+                   gradient: LinearGradient(
+                     colors: [colour1,Color(0xFF5B90F0)],
+                     begin: Alignment.topLeft,
+                     end: Alignment.bottomRight,
+                     //stops: [0.0,0.9],
+                     tileMode: TileMode.clamp,
+                   ),
+                 ),
+                 child: Padding(
+                   padding: const EdgeInsets.only(left: 15,bottom: 15),
+                   child: Column(
+                     crossAxisAlignment: CrossAxisAlignment.stretch,
+                     children: <Widget>[
+                       SizedBox(height: 75,),
+                       Row(
+                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                         children: <Widget>[
+                           Text('Pharmaceuticals',style: TextStyle(fontSize: 30,color: Colors.white.withOpacity(0.9),fontWeight: FontWeight.bold),),
+//                           Padding(
+//                             padding: const EdgeInsets.all(8.0),
+//                             child: Icon(Icons.add_alert,color: Colors.white.withOpacity(0.8)),
+//                           ),
+//                           Padding(
+//                             padding: const EdgeInsets.only(right: 15),
+//                             child: Container(
+//                               height: 50,
+//                               width: 50,
+//                               decoration: BoxDecoration(
+//                                   shape: BoxShape.circle,
+//                                   border: Border.all(color: Colors.white.withOpacity(0.2),width: 2)
+//                               ),
+//                               padding: EdgeInsets.all(3),
+//                               child: CircleAvatar(
+//                                 radius: 20.0,
+//                                 backgroundImage: AssetImage('images/model1.jpg'),
+//                               ),
+//                             ),
+//                           ),
+                         ],
+                       ),
+                       //SizedBox(height: 10,),
+                     ],
+                   ),
+                 ),
+               ),
                SizedBox(height: 10,),
                Padding(
                  padding: const EdgeInsets.only(left:12.0,right: 12.0,top: 12,bottom: 12),

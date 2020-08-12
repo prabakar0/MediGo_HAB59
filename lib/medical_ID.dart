@@ -23,8 +23,8 @@ import 'package:clay_containers/clay_containers.dart';
              borderRadius: BorderRadius.only(bottomRight: Radius.circular(45),),
              gradient: LinearGradient(
                colors: [colour1,colour2],
-               begin: Alignment.topRight,
-               end: Alignment.bottomLeft,
+               begin: Alignment.topLeft,
+               end: Alignment.bottomRight,
                //stops: [0.0,0.9],
                tileMode: TileMode.clamp,
              ),
@@ -46,7 +46,7 @@ import 'package:clay_containers/clay_containers.dart';
                          width: 100,
                          decoration: BoxDecoration(
                            shape: BoxShape.circle,
-                           border: Border.all(color: Colors.white.withOpacity(0.9),width: 2)
+                           border: Border.all(color: Colors.white.withOpacity(0.2),width: 2)
                          ),
                          padding: EdgeInsets.all(5.5),
                          child: CircleAvatar(
