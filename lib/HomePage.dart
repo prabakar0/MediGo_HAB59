@@ -256,9 +256,9 @@ imageurl: url,
         margin: EdgeInsets.all(16),
         child: Column(
           children: <Widget>[
-            ClipRRect(
-              borderRadius: BorderRadius.circular(10),
-                child: Image.network(imgurl)),
+            //ClipRRect(
+             // borderRadius: BorderRadius.circular(10),
+              //  child: Image.network(imgurl)),
             Text(title,style: TextStyle(fontSize: 17,color: Colors.black87,fontWeight: FontWeight.w500),),
             Text(desc,style: TextStyle(color:Colors.grey[700]),),
           ],
