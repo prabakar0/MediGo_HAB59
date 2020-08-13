@@ -1,9 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:medigo_hab59/ArticleModel.dart';
+import 'package:medigo_hab59/ArticleView.dart';
 import 'package:medigo_hab59/medical_ID.dart';
 import 'constants.dart';
 import 'package:clay_containers/clay_containers.dart';
 import 'drug_search.dart';
+import 'ArticleModel.dart';
+import 'News.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -11,6 +15,22 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  List<ArticleModel> articles = new List<ArticleModel>();
+  bool _loading = true;
+  getNews()async{
+    News newsObject = News();
+    await newsObject.GetNews();
+    articles = newsObject.news;
+    setState(() {
+      _loading = false;
+    });
+  }
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getNews();
+  }
   @override
   Widget build(BuildContext context) {
 
@@ -19,7 +39,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: Color(0xFFF2F2F2),
       //backgroundColor: Colors.white.withOpacity(0.9),
-      body: SingleChildScrollView(
+      body: _loading ? Center(child: Container(child: CircularProgressIndicator(),)) : SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
@@ -186,90 +206,61 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
-            SizedBox(height: 15,),
+            SizedBox(height: 5),
             Padding(
-              padding: const EdgeInsets.only(left:20.0,bottom: 10),
+              padding: const EdgeInsets.only(left:20.0,bottom: 5),
               child: Text('Health Articles',style: TextStyle(fontSize: 19,fontWeight: FontWeight.bold),),
             ),
-            Container(
-              height: 150,
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                children: <Widget>[
-                  SizedBox(width: 12,),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ClayContainer(
-                  height: 150,
-                  width: 300,
-                  depth: 20,
-                  spread: 8,
-                  borderRadius: 15,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: <Widget>[
-                      SizedBox(height: 78,),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Container(
-                          height: 40,
-                          width: 40,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            gradient: LinearGradient(
-                              colors: [colour1,Color(0xFF5B90F0)],
-                              begin: Alignment.topCenter,
-                              end: Alignment.bottomCenter,
-                              tileMode: TileMode.clamp,
-                            ),
-                          ),
-                          child: Icon(Icons.arrow_forward,color: Colors.white.withOpacity(0.7),size: 20,),
-                        ),
-                      ),
-                    ],
-                  ),
-                  //curveType: CurveType.convex,
+
+              Container(
+
+
+                height: 300 ,
+                padding: EdgeInsets.only(right: 16),
+
+                child: ListView.builder(
+
+                  itemCount: articles.length,
+                  shrinkWrap: true,
+                  physics: ClampingScrollPhysics(),
+                  itemBuilder: (context,index){
+                    return NewsCard(imgurl: articles[index].urlToImage, title: articles[index].title, desc: articles[index].description,url: articles[index].url,);
+                  },
+
                 ),
               ),
-                  Padding(
-                    padding: const EdgeInsets.only(top:8.0,bottom: 8,left: 10),
-                    child: ClayContainer(
-                      height: 150,
-                      width: 310,
-                      depth: 20,
-                      spread: 8,
-                      borderRadius: 15,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: <Widget>[
-                          SizedBox(height: 78,),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Container(
-                              height: 40,
-                              width: 40,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                gradient: LinearGradient(
-                                  colors: [colour1,Color(0xFF5B90F0)],
-                                  begin: Alignment.topCenter,
-                                  end: Alignment.bottomCenter,
-                                  tileMode: TileMode.clamp,
-                                ),
-                              ),
-                              child: Icon(Icons.arrow_forward,color: Colors.white.withOpacity(0.7),size: 20,),
-                            ),
-                          ),
-                        ],
-                      ),
-                      //curveType: CurveType.convex,
-                    ),
-                  ),
-                  SizedBox(width: 20,),
-                ],
-              ),
-            ),
-            SizedBox(height: 20,),
+
+
+          ],
+        ),
+      ),
+    );
+  }
+}
+class NewsCard extends StatelessWidget {
+  final String imgurl,title,desc,url;
+  NewsCard({@required this.imgurl,@required this.title,@required this.desc,@required this.url});
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: (){
+
+          Navigator.push(context, MaterialPageRoute(builder: (context) => ArticleView(
+imageurl: url,
+          ),
+        ),
+          );
+        } ,
+
+      child: Container(
+        margin: EdgeInsets.all(16),
+        child: Column(
+          children: <Widget>[
+            ClipRRect(
+              borderRadius: BorderRadius.circular(10),
+                child: Image.network(imgurl)),
+            Text(title,style: TextStyle(fontSize: 17,color: Colors.black87,fontWeight: FontWeight.w500),),
+            Text(desc,style: TextStyle(color:Colors.grey[700]),),
           ],
         ),
       ),
