@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:medigo_hab59/ArticleModel.dart';
 import 'package:medigo_hab59/ArticleView.dart';
 import 'package:medigo_hab59/medical_ID.dart';
+import 'package:medigo_hab59/medical_emergency.dart';
+import 'package:medigo_hab59/medical_emergency_brain.dart';
 import 'package:medigo_hab59/news_page.dart';
 import 'constants.dart';
 import 'package:clay_containers/clay_containers.dart';
@@ -125,7 +127,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                   Padding(
                     padding: const EdgeInsets.only(
-                        bottom: 15, left: 15, right: 15, top: 15),
+                        bottom: 15, left: 20, right: 20, top: 15),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: <Widget>[
@@ -142,25 +144,26 @@ class _HomePageState extends State<HomePage> {
                               );
                             },
                             child: ClayContainer(
-                              height: 120,
-                              //width: width*0,
-                              //color: Color(0xFFF2F2F2),
+                              height: 140,
+                              //width: width*0.4,
                               depth: 19,
                               spread: 8,
                               borderRadius: 15,
                               child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
                                 children: <Widget>[
-                                  SizedBox(
-                                    height: 20,
-                                  ),
+//                                  SizedBox(
+//                                    height: 20,
+//                                  ),
                                   Image.asset(
-                                    'images/syringe.png',
-                                    height: 60,
-                                    width: 60,
+                                    'images/Medicine.png',
+                                    height: 65,
+                                    width: 65,
                                   ),
+                                  SizedBox(height: 3,),
                                   Text(
-                                    'Pharmaceutical',
-                                    style: TextStyle(fontSize: 15),
+                                    'Pharmaceuticals',
+                                    style: TextStyle(fontSize: 15,color: Color(0xFF428DFF)),
                                   ),
                                 ],
                               ),
@@ -175,24 +178,26 @@ class _HomePageState extends State<HomePage> {
                           child: GestureDetector(
                             onTap: () {},
                             child: ClayContainer(
-                              height: 120,
+                              height: 140,
                               //width: width*0.4,
                               depth: 19,
                               spread: 8,
                               borderRadius: 15,
                               child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
                                 children: <Widget>[
-                                  SizedBox(
-                                    height: 20,
-                                  ),
+//                                  SizedBox(
+//                                    height: 20,
+//                                  ),
                                   Image.asset(
-                                    'images/medical-assistance.png',
-                                    height: 60,
-                                    width: 60,
+                                    'images/therapist.png',
+                                    height: 65,
+                                    width: 65,
                                   ),
+                                  SizedBox(height: 3,),
                                   Text(
                                     'Mental Assistance',
-                                    style: TextStyle(fontSize: 15),
+                                    style: TextStyle(fontSize: 15,color: Color(0xFF428DFF)),
                                   ),
                                 ],
                               ),
@@ -206,35 +211,43 @@ class _HomePageState extends State<HomePage> {
                   //SizedBox(height: 20,),
                   Padding(
                     padding: const EdgeInsets.only(
-                        bottom: 15, left: 15, right: 15, top: 0),
+                        bottom: 15, left: 20, right: 20, top: 0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: <Widget>[
                         Expanded(
                           child: GestureDetector(
                             onTap: () {
-                              print('pressed');
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) {
+                                    return MedicalEmergency();
+                                  },
+                                ),
+                              );
                             },
                             child: ClayContainer(
-                              height: 120,
+                              height: 140,
                               //width: width*0.4,
-                              //color: Color(0xFFF2F2F2),
                               depth: 19,
                               spread: 8,
                               borderRadius: 15,
                               child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
                                 children: <Widget>[
-                                  SizedBox(
-                                    height: 20,
-                                  ),
+//                                  SizedBox(
+//                                    height: 20,
+//                                  ),
                                   Image.asset(
-                                    'images/medical-box.png',
-                                    height: 60,
-                                    width: 60,
+                                    'images/first-aid (1).png',
+                                    height: 65,
+                                    width: 65,
                                   ),
+                                  SizedBox(height: 3,),
                                   Text(
                                     'Medical Emergency',
-                                    style: TextStyle(fontSize: 15),
+                                    style: TextStyle(fontSize: 15,color: Color(0xFF428DFF)),
                                   ),
                                 ],
                               ),
@@ -254,24 +267,26 @@ class _HomePageState extends State<HomePage> {
                                       builder: (context) => MedicalID()));
                             },
                             child: ClayContainer(
-                              height: 120,
+                              height: 140,
                               //width: width*0.4,
                               depth: 19,
                               spread: 8,
                               borderRadius: 15,
                               child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
                                 children: <Widget>[
-                                  SizedBox(
-                                    height: 20,
-                                  ),
+//                                  SizedBox(
+//                                    height: 20,
+//                                  ),
                                   Image.asset(
-                                    'images/personal-information.png',
-                                    height: 60,
-                                    width: 60,
+                                    'images/first-aid (2).png',
+                                    height: 65,
+                                    width: 65,
                                   ),
+                                  SizedBox(height: 3,),
                                   Text(
                                     'Medical ID',
-                                    style: TextStyle(fontSize: 15),
+                                    style: TextStyle(fontSize: 15,color: Color(0xFF428DFF)),
                                   ),
                                 ],
                               ),
@@ -284,7 +299,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                   SizedBox(height: 9),
                   Padding(
-                    padding: const EdgeInsets.only(top:5,left: 20.0, bottom: 5),
+                    padding: const EdgeInsets.only(top:5,left: 20.0,right:20 , bottom: 5),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
