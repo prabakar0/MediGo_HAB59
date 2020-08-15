@@ -316,7 +316,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   Container(
-                    height: 170,
+                    height: 240,
                     child: ListView(
                       scrollDirection: Axis.horizontal,
                       children: <Widget>[
@@ -326,7 +326,7 @@ class _HomePageState extends State<HomePage> {
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: ClayContainer(
-                            height: 120,
+                            height: 200,
                             width: 300,
                             depth: 20,
                             spread: 8,
@@ -337,33 +337,17 @@ class _HomePageState extends State<HomePage> {
 //                                SizedBox(
 //                                  height: 78,
 //                                ),
-                                Container(
-                                  child: Padding(
-                                    padding: const EdgeInsets.only(top: 20,bottom: 9,left: 12,right: 12),
-                                    child: Text('Bubonic Plague: Causes,Symptoms and Mode of Transmission',softWrap: true,style:TextStyle(fontSize: 18,fontWeight: FontWeight.w600)),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 8,bottom: 8,left: 8,right: 8),
+                                Center(
                                   child: Container(
-                                    height: 40,
-                                    width: 40,
-                                    decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      gradient: LinearGradient(
-                                        colors: [colour1, Color(0xFF5B90F0)],
-                                        begin: Alignment.topCenter,
-                                        end: Alignment.bottomCenter,
-                                        tileMode: TileMode.clamp,
-                                      ),
-                                    ),
-                                    child: Icon(
-                                      Icons.arrow_forward,
-                                      color: Colors.white.withOpacity(0.7),
-                                      size: 20,
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(top: 20,bottom: 9,left: 12,right: 12),
+                                      child: NewsCard(title: articles[0].title,  url: articles[0].url,)
+
+
                                     ),
                                   ),
                                 ),
+                                
                               ],
                             ),
                           ),
@@ -380,30 +364,16 @@ class _HomePageState extends State<HomePage> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.end,
                               children: <Widget>[
-                                SizedBox(
-                                  height: 78,
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Container(
-                                    height: 40,
-                                    width: 40,
-                                    decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      gradient: LinearGradient(
-                                        colors: [colour1, Color(0xFF5B90F0)],
-                                        begin: Alignment.topCenter,
-                                        end: Alignment.bottomCenter,
-                                        tileMode: TileMode.clamp,
-                                      ),
-                                    ),
-                                    child: Icon(
-                                      Icons.arrow_forward,
-                                      color: Colors.white.withOpacity(0.7),
-                                      size: 20,
-                                    ),
+
+                                Container(
+                                  child: Padding(
+                                      padding: const EdgeInsets.only(top: 20,bottom: 9,left: 12,right: 12),
+                                      child: NewsCard(title: articles[2].title,  url: articles[2].url,)
+
+
                                   ),
                                 ),
+
                               ],
                             ),
                           ),
@@ -440,11 +410,11 @@ class _HomePageState extends State<HomePage> {
 }
 
 class NewsCard extends StatelessWidget {
-  final String imgurl, title, desc, url;
+  final String  title, url;
   NewsCard(
-      {@required this.imgurl,
+      {
       @required this.title,
-      @required this.desc,
+
       @required this.url});
   @override
   Widget build(BuildContext context) {
@@ -473,10 +443,7 @@ class NewsCard extends StatelessWidget {
                   color: Colors.black87,
                   fontWeight: FontWeight.w500),
             ),
-            Text(
-              desc,
-              style: TextStyle(color: Colors.grey[700]),
-            ),
+
           ],
         ),
       ),

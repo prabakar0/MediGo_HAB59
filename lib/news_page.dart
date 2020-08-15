@@ -34,7 +34,7 @@ class _NewsPageState extends State<NewsPage> {
     double height=MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: Color(0xFFF2F2F2),
-      body: SingleChildScrollView(
+      body:_loading? Center(child: CircularProgressIndicator(),) : SingleChildScrollView(
         child: Column(
           children: <Widget>[
             Container(
@@ -55,8 +55,13 @@ class _NewsPageState extends State<NewsPage> {
                   children: <Widget>[
                     SizedBox(height: 75,),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
                       children: <Widget>[
+                        IconButton(icon: Icon(Icons.arrow_back), onPressed: (){
+                          Navigator.pop(context);
+                        }),
+
+
                         Text('Health Articles',style: TextStyle(fontSize: 30,color: Colors.white.withOpacity(0.9),fontWeight: FontWeight.bold),),
                       ],
                     ),
@@ -78,7 +83,7 @@ class _NewsPageState extends State<NewsPage> {
                   shrinkWrap: true,
                   physics: ClampingScrollPhysics(),
                   itemBuilder: (context,index){
-                    return NewsCard(imgurl: articles[index].urlToImage, title: articles[index].title, desc: articles[index].description,url: articles[index].url,);
+                    return NewsCard(title: articles[index].title, desc: articles[index].description,url: articles[index].url,);
                   },
 
                 ),
@@ -94,8 +99,8 @@ class _NewsPageState extends State<NewsPage> {
 }
 
 class NewsCard extends StatelessWidget {
-  final String imgurl,title,desc,url;
-  NewsCard({@required this.imgurl,@required this.title,@required this.desc,@required this.url});
+  final String title,desc,url;
+  NewsCard({@required this.title,@required this.desc,@required this.url});
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
