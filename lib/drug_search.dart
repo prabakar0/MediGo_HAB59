@@ -110,8 +110,11 @@ setState(() {
                      children: <Widget>[
                        SizedBox(height: 75,),
                        Row(
-                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                         //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                          children: <Widget>[
+                           IconButton(icon: Icon(Icons.arrow_back,color: Colors.white,), onPressed: (){
+                             Navigator.pop(context);
+                           }),
                            Text('Pharmaceuticals',style: TextStyle(fontSize: 30,color: Colors.white.withOpacity(0.9),fontWeight: FontWeight.bold),),
 //                           Padding(
 //                             padding: const EdgeInsets.all(8.0),

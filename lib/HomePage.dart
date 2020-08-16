@@ -127,7 +127,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                   Padding(
                     padding: const EdgeInsets.only(
-                        bottom: 15, left: 20, right: 20, top: 15),
+                        bottom: 15, left: 40, right: 40, top: 15),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: <Widget>[
@@ -144,7 +144,7 @@ class _HomePageState extends State<HomePage> {
                               );
                             },
                             child: ClayContainer(
-                              height: 140,
+                              height: 130,
                               //width: width*0.4,
                               depth: 19,
                               spread: 8,
@@ -157,8 +157,8 @@ class _HomePageState extends State<HomePage> {
 //                                  ),
                                   Image.asset(
                                     'images/Medicine.png',
-                                    height: 65,
-                                    width: 65,
+                                    height: 55,
+                                    width: 55,
                                   ),
                                   SizedBox(height: 3,),
                                   Text(
@@ -178,7 +178,7 @@ class _HomePageState extends State<HomePage> {
                           child: GestureDetector(
                             onTap: () {},
                             child: ClayContainer(
-                              height: 140,
+                              height: 130,
                               //width: width*0.4,
                               depth: 19,
                               spread: 8,
@@ -191,8 +191,8 @@ class _HomePageState extends State<HomePage> {
 //                                  ),
                                   Image.asset(
                                     'images/therapist.png',
-                                    height: 65,
-                                    width: 65,
+                                    height: 55,
+                                    width: 55,
                                   ),
                                   SizedBox(height: 3,),
                                   Text(
@@ -211,7 +211,7 @@ class _HomePageState extends State<HomePage> {
                   //SizedBox(height: 20,),
                   Padding(
                     padding: const EdgeInsets.only(
-                        bottom: 15, left: 20, right: 20, top: 0),
+                        bottom: 15, left: 40, right: 40, top: 0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: <Widget>[
@@ -228,7 +228,7 @@ class _HomePageState extends State<HomePage> {
                               );
                             },
                             child: ClayContainer(
-                              height: 140,
+                              height: 130,
                               //width: width*0.4,
                               depth: 19,
                               spread: 8,
@@ -239,15 +239,27 @@ class _HomePageState extends State<HomePage> {
 //                                  SizedBox(
 //                                    height: 20,
 //                                  ),
-                                  Image.asset(
-                                    'images/first-aid (1).png',
-                                    height: 65,
-                                    width: 65,
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: <Widget>[
+                                      SizedBox(width: 10,),
+                                      Image.asset(
+                                        'images/first-aid (1).png',
+                                        height: 55,
+                                        width: 55,
+                                      ),
+                                    ],
                                   ),
                                   SizedBox(height: 3,),
-                                  Text(
-                                    'Medical Emergency',
-                                    style: TextStyle(fontSize: 15,color: Color(0xFF428DFF)),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: <Widget>[
+                                      SizedBox(width: 3,),
+                                      Text(
+                                        'Medical Emergency',
+                                        style: TextStyle(fontSize: 15,color: Color(0xFF428DFF)),
+                                      ),
+                                    ],
                                   ),
                                 ],
                               ),
@@ -267,7 +279,7 @@ class _HomePageState extends State<HomePage> {
                                       builder: (context) => MedicalID()));
                             },
                             child: ClayContainer(
-                              height: 140,
+                              height: 130,
                               //width: width*0.4,
                               depth: 19,
                               spread: 8,
@@ -280,8 +292,8 @@ class _HomePageState extends State<HomePage> {
 //                                  ),
                                   Image.asset(
                                     'images/first-aid (2).png',
-                                    height: 65,
-                                    width: 65,
+                                    height: 55,
+                                    width: 55,
                                   ),
                                   SizedBox(height: 3,),
                                   Text(
@@ -340,12 +352,35 @@ class _HomePageState extends State<HomePage> {
                         ),
                         Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: ClayContainer(
+                          child: Container(
+                            decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                  begin: Alignment.bottomCenter,
+                                  colors: [
+                                    Color(0xFFF2F2F2),
+                                    Color(0xFFF2F2F2),
+                                    //Color(0xFFE5F9F9),
+                                    // Color(0xFFA1EAE0),
+                                  ]),
+                              borderRadius: BorderRadius.circular(10),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.withOpacity(0.8),
+                                  blurRadius: 12,
+                                  offset: Offset(0, 9),
+                                )
+                              ],
+                              image: new DecorationImage(
+                                image: new AssetImage('images/caduceus.png'),
+                                colorFilter: new ColorFilter.mode(Colors.white.withOpacity(0.1), BlendMode.dstATop),
+                                fit: BoxFit.cover,
+                              ),
+                            ),
                             height: 200,
                             width: 300,
-                            depth: 20,
-                            spread: 8,
-                            borderRadius: 15,
+//                            depth: 20,
+//                            spread: 8,
+//                            borderRadius: 15,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.end,
                               children: <Widget>[
@@ -362,7 +397,25 @@ class _HomePageState extends State<HomePage> {
                                     ),
                                   ),
                                 ),
-                                
+                                Padding(
+                                  padding: const EdgeInsets.all(15.0),
+                                  child: Container(
+                                    height: 40,
+                                    width: 40,
+                                    decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        gradient: LinearGradient(
+                                            begin: Alignment.topLeft,
+                                            end: Alignment.bottomRight,
+                                            colors: <Color>[
+                                              colour1,
+                                              Color(0xFF5B90F0),
+                                            ])
+                                    ),
+                                    padding: EdgeInsets.all(2),
+                                    child: Icon(Icons.arrow_forward,color: Colors.white.withOpacity(0.9),),
+                                  ),
+                                ),
                               ],
                             ),
                           ),
@@ -370,12 +423,35 @@ class _HomePageState extends State<HomePage> {
                         Padding(
                           padding: const EdgeInsets.only(
                               top: 8.0, bottom: 8, left: 10),
-                          child: ClayContainer(
+                          child: Container(
+                            decoration: BoxDecoration(
+                                gradient: LinearGradient(
+                                    begin: Alignment.bottomCenter,
+                                    colors: [
+                                      Color(0xFFF2F2F2),
+                                      Color(0xFFF2F2F2),
+                                      //Color(0xFFE5F9F9),
+                                      // Color(0xFFA1EAE0),
+                                    ]),
+                                borderRadius: BorderRadius.circular(10),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color:  Colors.grey.withOpacity(0.8),
+                                    blurRadius: 12,
+                                    offset: Offset(0, 9),
+                                  )
+                                ],
+                              image: new DecorationImage(
+                                image: new AssetImage('images/caduceus.png'),
+                                colorFilter: new ColorFilter.mode(Colors.white.withOpacity(0.1), BlendMode.dstATop),
+                                fit: BoxFit.cover,
+                              ),
+                            ),
                             height: 150,
                             width: 310,
-                            depth: 20,
-                            spread: 8,
-                            borderRadius: 15,
+//                            depth: 20,
+//                            spread: 8,
+//                            borderRadius: 15,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.end,
                               children: <Widget>[
@@ -384,11 +460,27 @@ class _HomePageState extends State<HomePage> {
                                   child: Padding(
                                       padding: const EdgeInsets.only(top: 20,bottom: 9,left: 12,right: 12),
                                       child: NewsCard(title: articles[2].title,  url: articles[2].url,)
-
-
                                   ),
                                 ),
-
+                                Padding(
+                                  padding: const EdgeInsets.all(15.0),
+                                  child: Container(
+                                    height: 40,
+                                    width: 40,
+                                    decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                        gradient: LinearGradient(
+                                            begin: Alignment.topLeft,
+                                            end: Alignment.bottomRight,
+                                            colors: <Color>[
+                                              colour1,
+                                              Color(0xFF5B90F0),
+                                            ])
+                                    ),
+                                    padding: EdgeInsets.all(2),
+                                    child: Icon(Icons.arrow_forward,color: Colors.white.withOpacity(0.9),),
+                                  ),
+                                ),
                               ],
                             ),
                           ),
@@ -445,6 +537,7 @@ class NewsCard extends StatelessWidget {
         );
       },
       child: Container(
+
         margin: EdgeInsets.all(16),
         child: Column(
           children: <Widget>[

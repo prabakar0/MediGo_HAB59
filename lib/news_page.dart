@@ -20,12 +20,9 @@ class _NewsPageState extends State<NewsPage> {
       _loading = false;
     });
   }
-
-
-
+  
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     getNews();
   }
@@ -57,7 +54,7 @@ class _NewsPageState extends State<NewsPage> {
                     Row(
 
                       children: <Widget>[
-                        IconButton(icon: Icon(Icons.arrow_back), onPressed: (){
+                        IconButton(icon: Icon(Icons.arrow_back,color: Colors.white,), onPressed: (){
                           Navigator.pop(context);
                         }),
 

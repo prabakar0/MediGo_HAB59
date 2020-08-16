@@ -8,9 +8,9 @@ import 'package:clay_containers/clay_containers.dart';
  }
 
  class _MedicalIDState extends State<MedicalID> {
-   int height=180;
-   int age=19;
-   int weight=60;
+   int height=173;
+   int age=21;
+   int weight=58;
 
    @override
    Widget build(BuildContext context) {
@@ -33,7 +33,6 @@ import 'package:clay_containers/clay_containers.dart';
            child: Column(
              children: <Widget>[
                Container(
-
                  child: Padding(
                    padding: const EdgeInsets.only(left: 15,bottom: 15,top: 8),
                    child: Column(
