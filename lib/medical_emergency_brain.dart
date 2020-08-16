@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:medigo_hab59/constants.dart';
 
 class MedEmergency {
-  String heading,procedure;
+  String heading;
+    String procedure;
   MedEmergency({this.heading,this.procedure});
 }
 
@@ -106,6 +107,8 @@ class Procedure extends StatelessWidget {
               medemer[choice].procedure,
               style: TextStyle(
                 fontSize: 20,
+                fontFamily: 'nunito',
+                //fontWeight: FontWeight.w500
               ),
             ),),
         ),

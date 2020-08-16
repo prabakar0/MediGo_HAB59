@@ -4,7 +4,6 @@ import 'package:medigo_hab59/ArticleModel.dart';
 import 'package:medigo_hab59/ArticleView.dart';
 import 'package:medigo_hab59/medical_ID.dart';
 import 'package:medigo_hab59/medical_emergency.dart';
-import 'package:medigo_hab59/medical_emergency_brain.dart';
 import 'package:medigo_hab59/news_page.dart';
 import 'constants.dart';
 import 'package:clay_containers/clay_containers.dart';
@@ -22,7 +21,7 @@ class _HomePageState extends State<HomePage> {
   bool _loading = true;
   getNews() async {
     News newsObject = News();
-    await newsObject.GetNews();
+    await newsObject.getNews();
     articles = newsObject.news;
     setState(() {
       _loading = false;
@@ -31,18 +30,16 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     getNews();
   }
 
   @override
   Widget build(BuildContext context) {
-    //double width=MediaQuery.of(context).size.width;
+
 
     return Scaffold(
       backgroundColor: Color(0xFFF2F2F2),
-      //backgroundColor: Colors.white.withOpacity(0.9),
       body: _loading
           ? Center(
               child: Container(
@@ -71,12 +68,13 @@ class _HomePageState extends State<HomePage> {
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: <Widget>[
                           SizedBox(
-                            height: 120,
+                            height: 135,
                           ),
                           Text(
                             'Welcome Back,',
                             style: TextStyle(
                                 fontSize: 18,
+                                fontFamily: 'nunito',
                                 color: Colors.white.withOpacity(0.7)),
                           ),
                           Row(
@@ -86,6 +84,7 @@ class _HomePageState extends State<HomePage> {
                                 'Samsritha',
                                 style: TextStyle(
                                     fontSize: 40,
+                                    //fontFamily: 'nunito',
                                     color: Colors.white.withOpacity(0.9),
                                     fontWeight: FontWeight.bold),
                               ),
@@ -127,7 +126,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                   Padding(
                     padding: const EdgeInsets.only(
-                        bottom: 15, left: 40, right: 40, top: 15),
+                        bottom: 15, left: 25, right: 25, top: 15),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: <Widget>[
@@ -211,7 +210,7 @@ class _HomePageState extends State<HomePage> {
                   //SizedBox(height: 20,),
                   Padding(
                     padding: const EdgeInsets.only(
-                        bottom: 15, left: 40, right: 40, top: 0),
+                        bottom: 15, left: 25, right: 25, top: 0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: <Widget>[
@@ -309,7 +308,7 @@ class _HomePageState extends State<HomePage> {
                       ],
                     ),
                   ),
-                  SizedBox(height: 9),
+                  SizedBox(height: 2),
                   Padding(
                     padding: const EdgeInsets.only(top:5,left: 20.0,right:20 , bottom: 5),
                     child: Row(
@@ -337,6 +336,7 @@ class _HomePageState extends State<HomePage> {
                             child: Text(
                           'See all  ',
                           style: TextStyle(
+                              fontFamily: 'nunito',
                               fontSize: 16, color: Colors.grey.shade700),
                         )),
                       ],
@@ -391,7 +391,7 @@ class _HomePageState extends State<HomePage> {
                                   child: Container(
                                     child: Padding(
                                       padding: const EdgeInsets.only(top: 20,bottom: 9,left: 12,right: 12),
-                                      child: NewsCard(title: articles[0].title,  url: articles[0].url,)
+                                      child: NewsCard(title: articles[4].title,  url: articles[4].url,)
 
 
                                     ),
@@ -459,7 +459,7 @@ class _HomePageState extends State<HomePage> {
                                 Container(
                                   child: Padding(
                                       padding: const EdgeInsets.only(top: 20,bottom: 9,left: 12,right: 12),
-                                      child: NewsCard(title: articles[2].title,  url: articles[2].url,)
+                                      child: NewsCard(title: articles[3].title,  url: articles[3].url,)
                                   ),
                                 ),
                                 Padding(
@@ -547,9 +547,10 @@ class NewsCard extends StatelessWidget {
             Text(
               title,
               style: TextStyle(
+                  fontFamily: 'nunito',
                   fontSize: 17,
                   color: Colors.black87,
-                  fontWeight: FontWeight.w500),
+                  fontWeight: FontWeight.w800),
             ),
 
           ],

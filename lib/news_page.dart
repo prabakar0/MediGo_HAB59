@@ -14,7 +14,7 @@ class _NewsPageState extends State<NewsPage> {
   bool _loading = true;
   getNews()async{
     News newsObject = News();
-    await newsObject.GetNews();
+    await newsObject.getNews();
     articles = newsObject.news;
     setState(() {
       _loading = false;
