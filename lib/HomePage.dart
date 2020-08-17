@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:medigo_hab59/ArticleModel.dart';
 import 'package:medigo_hab59/ArticleView.dart';
+import 'package:medigo_hab59/Diseasopedia.dart';
 import 'package:medigo_hab59/medical_ID.dart';
 import 'package:medigo_hab59/medical_emergency.dart';
 import 'package:medigo_hab59/news_page.dart';
@@ -175,7 +176,11 @@ class _HomePageState extends State<HomePage> {
                         ),
                         Expanded(
                           child: GestureDetector(
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.push(context, MaterialPageRoute(builder: (context){
+                                return Diseasopedia();
+                              }));
+                            },
                             child: ClayContainer(
                               height: 130,
                               //width: width*0.4,
@@ -195,7 +200,7 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                   SizedBox(height: 3,),
                                   Text(
-                                    'Mental Assistance',
+                                    'Diseasopaedia',
                                     style: TextStyle(fontSize: 15,color: Color(0xFF428DFF)),
                                   ),
                                 ],

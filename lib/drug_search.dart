@@ -13,11 +13,11 @@ class DrugSearch extends StatefulWidget {
 
 class _DrugSearchState extends State<DrugSearch> {
   String medicineQuery;
-  String name1 = 'nil';
-  String name2 = 'nil';
-  String name3 = 'nil';
-  String name4 = 'nil';
-  String name5 = 'nil';
+  String name1 = '';
+  String name2 = '';
+  String name3 = '';
+  String name4 = '';
+  String name5 = '';
 
   double price1 = 0.0;
   double price2 = 0.0;
@@ -25,11 +25,18 @@ class _DrugSearchState extends State<DrugSearch> {
   double price4 = 0.0;
   double price5 = 0.0;
 
-  String manufacturer1 = 'nil';
-  String manufacturer2 = 'nil';
-  String manufacturer3 = 'nil';
-  String manufacturer4 = 'nil';
-  String manufacturer5 = 'nil';
+  String manufacturer1 = '';
+  String manufacturer2 = '';
+  String manufacturer3 = '';
+  String manufacturer4 = '';
+  String manufacturer5 = '';
+
+  String  medicine__id1 = '';
+  String  medicine__id2 = '';
+  String  medicine__id3 = '';
+  String  medicine__id4 = '';
+  String  medicine__id5 = '';
+
 
   void fetchAlbum(String query) async {
     http.Response response = await http.get(
@@ -58,7 +65,15 @@ setState(() {
         manufacturer3 = decodeddata[2]['manufacturer'];
         manufacturer4 = decodeddata[3]['manufacturer'];
         manufacturer5 = decodeddata[4]['manufacturer'];
-        print('$price1 + $name1 + $manufacturer1');
+
+        medicine__id1 = decodeddata[0]['medicine_id'];
+        medicine__id2 = decodeddata[1]['medicine_id'];
+        medicine__id3 = decodeddata[2]['medicine_id'];
+        medicine__id4 = decodeddata[3]['medicine_id'];
+        medicine__id5 = decodeddata[4]['medicine_id'];
+        print('$price1 + $name1 + $manufacturer1+ $medicine__id1');
+
+
       });
     }
     else{
@@ -160,6 +175,7 @@ setState(() {
                RaisedButton(onPressed: (){
                  fetchAlbum(medicineQuery);
                  print(medicineQuery);
+
                },
                  child: Text('Search'),
                ),
