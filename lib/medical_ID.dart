@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medigo_hab59/medical_assistance.dart';
 import 'constants.dart';
 import 'package:clay_containers/clay_containers.dart';
 
@@ -334,6 +335,7 @@ import 'package:clay_containers/clay_containers.dart';
                          //curveType: CurveType.convex,
                        ),
                      ),
+
                      Padding(
                        padding: const EdgeInsets.only(left:25.0,right: 25.0,top: 20,bottom: 20),
                        child: ClayContainer(
@@ -365,6 +367,55 @@ import 'package:clay_containers/clay_containers.dart';
                            ],
                          ),
                          //curveType: CurveType.convex,
+                       ),
+                     ),
+                     Padding(
+                       padding: const EdgeInsets.only(left:16.0,right: 16),
+                       child: SizedBox(
+                         height: 1.0,
+                         width: double.infinity,
+                         child: Divider(
+                           color: Colors.grey ,
+                         ),
+                       ),
+                     ),
+                     GestureDetector(
+                       onTap: (){
+                         Navigator.push(
+                           context,
+                           MaterialPageRoute(
+                             builder: (context) {
+                               return MedicalAssistance();
+                             },
+                           ),
+                         );
+                       },
+                       child: Padding(
+                         padding: const EdgeInsets.only(left:25.0,right: 25.0,top: 20,bottom: 20),
+                         child: ClayContainer(
+                           height: 60,
+                           depth: 19,
+                           spread: 8,
+                           borderRadius: 15,
+                           child: Column(
+                             crossAxisAlignment: CrossAxisAlignment.stretch,
+                             //mainAxisAlignment: MainAxisAlignment.center,
+                             children: <Widget>[
+                               SizedBox(height: 20,),
+                               Center(
+                                 child: Text(
+                                   '  Need Mental Assistance?',
+                                   style: TextStyle(fontSize: 16,fontFamily: 'nunito',fontWeight: FontWeight.bold),
+
+                                 ),
+                               ),
+
+                               //SizedBox(height: 1,),
+
+                             ],
+                           ),
+                           //curveType: CurveType.convex,
+                         ),
                        ),
                      ),
 
@@ -403,17 +454,3 @@ class RoundIconButton extends StatelessWidget {
 }
 
 
-//Positioned(
-//left: 60.0,
-//top: 25.0,
-//child: Container(
-//height: 100.0,
-//width: 100.0,
-//decoration: BoxDecoration(
-//image: DecorationImage(
-//image: AssetImage(imgPath),
-//fit: BoxFit.contain
-//)
-//)
-//)
-//)

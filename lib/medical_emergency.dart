@@ -57,24 +57,24 @@ class _MedicalEmergencyState extends State<MedicalEmergency> {
               borderRadius: 15,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
-               // mainAxisAlignment: MainAxisAlignment.center,
+                // mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   SizedBox(
                     height: 20,
                   ),
 
-                Image.asset(
-                  'images/epipen.png',
-                  height: 50,
-                  width: 50,
-                ),
+                  Image.asset(
+                    'images/epipen.png',
+                    height: 50,
+                    width: 50,
+                  ),
                   SizedBox(
                     height: 5,
                   ),
-                Text(
-                  medemer[0].heading,
-                  style: TextStyle(fontSize: 12,color: Color(0xFF428DFF)),
-                ),
+                  Text(
+                    medemer[0].heading,
+                    style: TextStyle(fontSize: 12,color: Color(0xFF428DFF)),
+                  ),
                 ],
               ),
               //curveType: CurveType.convex,

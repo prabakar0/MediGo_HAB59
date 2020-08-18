@@ -1,6 +1,5 @@
 import 'package:clay_containers/clay_containers.dart';
 import 'package:flutter/material.dart';
-//import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 import 'package:http/http.dart' as http;
@@ -12,6 +11,7 @@ class DrugSearch extends StatefulWidget {
 }
 
 class _DrugSearchState extends State<DrugSearch> {
+
   String medicineQuery;
   String name1 = '';
   String name2 = '';
@@ -85,24 +85,11 @@ setState(() {
 
   }
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFFF2F2F2),
-//      appBar: AppBar(
-//        title: Text('Pharmaceuticals'),
-//        //centerTitle: true,
-//        flexibleSpace: Container(
-//          decoration: BoxDecoration(
-//              gradient: LinearGradient(
-//                  begin: Alignment.topLeft,
-//                  end: Alignment.bottomRight,
-//                  colors: <Color>[
-//                    Color(0xFF5B90F0),colour1,
-//                  ])
-//          ),
-//        ),
-//      ),
          body: SingleChildScrollView(
            child: Column(
              mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -131,26 +118,6 @@ setState(() {
                              Navigator.pop(context);
                            }),
                            Text('Pharmaceuticals',style: TextStyle(fontSize: 30,color: Colors.white.withOpacity(0.9),fontWeight: FontWeight.bold),),
-//                           Padding(
-//                             padding: const EdgeInsets.all(8.0),
-//                             child: Icon(Icons.add_alert,color: Colors.white.withOpacity(0.8)),
-//                           ),
-//                           Padding(
-//                             padding: const EdgeInsets.only(right: 15),
-//                             child: Container(
-//                               height: 50,
-//                               width: 50,
-//                               decoration: BoxDecoration(
-//                                   shape: BoxShape.circle,
-//                                   border: Border.all(color: Colors.white.withOpacity(0.2),width: 2)
-//                               ),
-//                               padding: EdgeInsets.all(3),
-//                               child: CircleAvatar(
-//                                 radius: 20.0,
-//                                 backgroundImage: AssetImage('images/model1.jpg'),
-//                               ),
-//                             ),
-//                           ),
                          ],
                        ),
                        //SizedBox(height: 10,),
@@ -191,6 +158,7 @@ setState(() {
                    child: Column(
                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                      children: <Widget>[
+                       //initChaptersTitleScrap(),
                        Text(name1),
                        Text('₹$price1',style: TextStyle(color: Color(0xFF9055FF))),
                        Text(manufacturer1),
@@ -289,7 +257,7 @@ setState(() {
                  ),
                ),
 
-               
+
 
 
              ],

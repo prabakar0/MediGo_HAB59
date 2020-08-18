@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:clay_containers/clay_containers.dart';
 import 'package:flutter/material.dart';
 //import 'dart:async';
@@ -41,10 +43,12 @@ class _DiseasopediaState extends State<Diseasopedia> {
       print(response.statusCode);
       fetchDisease(query);
     }
-
-
-
   }
+  double _height=50;
+  //double _width=300;
+  Color colour3=Colors.white;
+  Color colour4=Colors.transparent;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,7 +64,6 @@ class _DiseasopediaState extends State<Diseasopedia> {
                   colors: [colour1,Color(0xFF5B90F0)],
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
-                  //stops: [0.0,0.9],
                   tileMode: TileMode.clamp,
                 ),
               ),
@@ -71,32 +74,11 @@ class _DiseasopediaState extends State<Diseasopedia> {
                   children: <Widget>[
                     SizedBox(height: 75,),
                     Row(
-                      //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
                         IconButton(icon: Icon(Icons.arrow_back,color: Colors.white,), onPressed: (){
                           Navigator.pop(context);
                         }),
                         Text('Diseasopedia',style: TextStyle(fontSize: 30,color: Colors.white.withOpacity(0.9),fontWeight: FontWeight.bold),),
-//                           Padding(
-//                             padding: const EdgeInsets.all(8.0),
-//                             child: Icon(Icons.add_alert,color: Colors.white.withOpacity(0.8)),
-//                           ),
-//                           Padding(
-//                             padding: const EdgeInsets.only(right: 15),
-//                             child: Container(
-//                               height: 50,
-//                               width: 50,
-//                               decoration: BoxDecoration(
-//                                   shape: BoxShape.circle,
-//                                   border: Border.all(color: Colors.white.withOpacity(0.2),width: 2)
-//                               ),
-//                               padding: EdgeInsets.all(3),
-//                               child: CircleAvatar(
-//                                 radius: 20.0,
-//                                 backgroundImage: AssetImage('images/model1.jpg'),
-//                               ),
-//                             ),
-//                           ),
                       ],
                     ),
                     //SizedBox(height: 10,),
@@ -121,33 +103,50 @@ class _DiseasopediaState extends State<Diseasopedia> {
             RaisedButton(onPressed: (){
               fetchDisease(diseaseQuery);
               print(diseaseQuery);
+              _height=700;
+              //_width=500;
+              colour3=Colors.transparent;
+              colour4=Colors.white;
             },
               child: Text('Search'),
             ),
 
             Padding(
-              padding: const EdgeInsets.only(left:25.0,right: 25.0,top: 12),
-              child: ClayContainer(
+              padding: const EdgeInsets.only(left:25.0,right: 25.0,top: 12,bottom: 20),
+              child: AnimatedContainer(
+                duration: Duration(milliseconds: 50),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(25)),
+                  gradient: LinearGradient(
+                    colors: [colour1,Color(0xFF5B90F0)],
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    tileMode: TileMode.clamp,
+
+                  ),
+                ),
                 width: double.infinity,
-                height: 200,
-                depth: 19,
-                spread: 8,
-                borderRadius: 15,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                height: _height,
+//                depth: 19,
+////                spread: 8,
+////                borderRadius: 15,
+                child:Padding
+                (padding: const EdgeInsets.all(25),
+                  child: Column(
+                 //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
-                    Text(name),
-                    Text(cat),
-                    Text(info),
+                    Text('search for a disease',style: TextStyle(color: colour3),),
+                    Text(name,style: TextStyle(color:Colors.white,fontWeight: FontWeight.bold,fontSize: 16),),
+                    SizedBox(height: 10, ),
+                    Text(cat,style: TextStyle(color:Colors.white,fontSize: 15),),
+                    SizedBox(height: 10,),
+                    Text(info,style: TextStyle(color:Colors.white,fontSize: 15),),
 
                   ],
                 ),
+                ),
               ),
             ),
-
-
-
-
           ],
         ),
 
